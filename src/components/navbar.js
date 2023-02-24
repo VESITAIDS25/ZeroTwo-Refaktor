@@ -10,7 +10,10 @@ import {
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
+import { auth } from '../config/firebase'
+import { signOut } from 'firebase/auth'
+import { onAuthStateChanged } from 'firebase/auth'
 
 const products = [
   { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
@@ -28,8 +31,25 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function NavBa() {
+export default function NavBar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [user, setUser] = useState({
+
+  })
+
+  onAuthStateChanged(auth, (user) => {
+    setUser(user)
+  });
+
+  const logout = async () => {
+    try {
+      await signOut(auth);
+      setUser({})
+      console.log("out")
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   return (
     <header className="bg-white">
@@ -105,17 +125,19 @@ export default function NavBa() {
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
             Communities
           </a>
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+          <a href="http://localhost:3000/marketplace" className="text-sm font-semibold leading-6 text-gray-900">
             Marketplace
           </a>
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+          <a href="http://localhost:3000/course" className="text-sm font-semibold leading-6 text-gray-900">
             Courses
           </a>
         </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-           <Link to='/login'>Login</Link> <span aria-hidden="true">&rarr;</span>
-          </a>
+          {
+            user?.email ? <a href="http://localhost:3000/split" className="text-sm font-semibold leading-6 text-gray-900">
+            Login <span aria-hidden="true">&rarr;</span>
+           </a> : <div className="cursor-pointer" onClick={logout}>LogOut</div>
+          }
         </div>
       </nav>
       <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>

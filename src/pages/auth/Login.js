@@ -2,19 +2,15 @@ import { auth, googleProvider } from "../../config/firebase";
 import {
   createUserWithEmailAndPassword,
   signInWithPopup,
+  signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
 import { LockClosedIcon } from '@heroicons/react/20/solid'
 import { redirect } from "react-router-dom";
-import { Auth } from "firebase/auth";
-import { collection } from "firebase/firestore";
-import { db } from "../../config/firebase";
-import { addDoc } from "firebase/firestore";
 
-
-export const LoginPage1 = () => {
+export const LoginPage2 = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -22,10 +18,13 @@ export const LoginPage1 = () => {
   
     const signIn = async () => {
       try {
-        addUser()
+        addUser();
+        console.log("add user")
         await createUserWithEmailAndPassword(auth, email, password);
         navigate("/")
-      } catch (err) {
+      } 
+      
+      catch (err) {
         console.error(err);
       }
     };
@@ -33,6 +32,7 @@ export const LoginPage1 = () => {
     const signInWithGoogle = async () => {
       try {
         await signInWithPopup(auth, googleProvider);
+        addUser();
         navigate("/")
       } catch (err) {
         console.error(err);
@@ -46,15 +46,15 @@ export const LoginPage1 = () => {
         console.error(err);
       }
     };
-
     const moviesCollectionRef = collection(db, "users");
     const addUser = async () => {
       try {
         await addDoc(moviesCollectionRef, {
-          email: email ?? auth.currentUser.email,
-          password: password ?? "",
+          email: email,
+          password: password,
           'role': 'seeker'
         });
+        getMovieList();
       } catch (err) {
         console.error(err);
       }
@@ -161,4 +161,4 @@ export const LoginPage1 = () => {
   )
 }
 
-export default LoginPage1
+export default LoginPage2
