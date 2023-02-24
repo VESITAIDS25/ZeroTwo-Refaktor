@@ -1,9 +1,13 @@
-import { Comment } from "./Comment"
+import { Comment } from "./Comment";
 
 export function CommentList({ comments }) {
-  return comments.map(comment => (
-    <div key={comment.id} className="comment-stack">
-      <Comment {...comment} />
-    </div>
-  ))
+  if (comments === null) {
+    return <></>;
+  } else {
+    return comments.map((comment) => (
+      <div key={comment.id} className="comment-stack">
+        <Comment {...comment} />
+      </div>
+    ));
+  }
 }

@@ -1,4 +1,6 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -14,6 +16,15 @@ body {
   margin: 2rem auto;
 }
 
+.postcard {
+  border: solid 2px rgb(122, 122, 122);
+  border-radius: 0.3em;
+}
+
+.postcard > a {
+  text-decoration: none;
+}
+
 button {
   font-size: inherit;
   font-family: inherit;
@@ -24,20 +35,80 @@ button {
 }
 
 .comments-title {
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
-
 .comment-form-row {
   display: flex;
-  gap: .5rem;
+  gap: 0.5rem;
+}
+
+/* .comment-form-row > label {
+  display: flex;
+} */
+.btnnewpost {
+  --hue: 235;
+  --color: hsl(var(--hue), 100%, 67%);
+  max-width: 20%;
+  margin-left: 0;
+  padding: 0.5em 1em;
+  height: 100%;
+  background: var(--color);
+  border: none;
+  color: white;
+  border-radius: 0.5em;
+  font-size: 0.75em;
+  cursor: pointer;
+}
+
+.btnnewpost:hover,
+.btnnewpost:focus-visible {
+  --color: hsl(var(--hue), 100%, 74%);
+}
+
+.btnnavnewpost {
+  --hue: 235;
+  --color: hsl(var(--hue), 100%, 67%);
+  max-width: 20%;
+  margin-right: 0;
+  padding: 0.5em 1em;
+  height: 100%;
+  background: var(--color);
+  border: none;
+  color: white;
+  border-radius: 0.5em;
+  font-size: 0.75em;
+  cursor: pointer;
+}
+
+.btnnavnewpost:hover,
+.btnnavnewpost:focus-visible {
+  --color: hsl(var(--hue), 100%, 74%);
+}
+.newpost-form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-right: 0.5em;
+}
+
+.newpost-body {
+  flex-grow: 1;
+  height: 70px;
+  border-radius: 0.5em;
+  padding: 0.5em;
+  font-size: inherit;
+  font-family: inherit;
+  border: 2px solid hsl(235, 50%, 74%);
+  line-height: 1.4;
+  overflow: hidden;
 }
 
 .message-input {
   flex-grow: 1;
   resize: none;
   height: 70px;
-  border-radius: .5em;
-  padding: .5em;
+  border-radius: 0.5em;
+  padding: 0.5em;
   font-size: inherit;
   font-family: inherit;
   border: 2px solid hsl(235, 50%, 74%);
@@ -54,11 +125,11 @@ button {
 }
 
 .mt-1 {
-  margin-top: .25rem;
+  margin-top: 0.25rem;
 }
 
 .comment-stack {
-  margin: .5rem 0;
+  margin: 0.5rem 0;
 }
 
 .comment-stack:last-child {
@@ -66,7 +137,7 @@ button {
 }
 
 .nested-comments {
-  padding-left: .5rem;
+  padding-left: 0.5rem;
   flex-grow: 1;
 }
 
@@ -79,7 +150,7 @@ button {
   background: none;
   padding: 0;
   width: 15px;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
   position: relative;
   cursor: pointer;
   outline: none;
@@ -109,12 +180,12 @@ button {
 .btn {
   --hue: 235;
   --color: hsl(var(--hue), 100%, 67%);
-  padding: .5em 1em;
+  padding: 0.5em 1em;
   background: var(--color);
   border: none;
   color: white;
-  border-radius: .5em;
-  font-size: .75em;
+  border-radius: 0.5em;
+  font-size: 0.75em;
   cursor: pointer;
 }
 
@@ -126,13 +197,13 @@ button {
 .btn.icon-btn {
   background: none;
   color: var(--color);
-  padding: .25em;
+  padding: 0.25em;
   display: flex;
   align-items: center;
 }
 
 .mr-1 {
-  margin-right: .25em;
+  margin-right: 0.25em;
 }
 
 .icon-btn:hover,
@@ -152,28 +223,28 @@ button {
 .icon-btn-active::before {
   content: "\00D7";
   position: absolute;
-  font-size: .75em;
+  font-size: 0.75em;
   width: 1em;
   height: 1em;
   color: white;
   background-color: var(--color);
   border-radius: 50%;
-  bottom: .1em;
-  right: .1em;
+  bottom: 0.1em;
+  right: 0.1em;
 }
 
 .comment {
-  padding: .5rem;
+  padding: 0.5rem;
   border: 1px solid hsl(235, 100%, 90%);
-  border-radius: .5rem;
+  border-radius: 0.5rem;
 }
 
 .comment .header {
   color: hsl(235, 50%, 67%);
   display: flex;
   justify-content: space-between;
-  margin-bottom: .25rem;
-  font-size: .75em;
+  margin-bottom: 0.25rem;
+  font-size: 0.75em;
 }
 
 .comment .header .name {
@@ -182,14 +253,14 @@ button {
 
 .comment .message {
   white-space: pre-wrap;
-  margin-left: .5rem;
-  margin-right: .5rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .comment .footer {
   display: flex;
-  gap: .5rem;
-  margin-top: .5rem;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .ml-3 {

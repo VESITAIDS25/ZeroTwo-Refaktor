@@ -1,23 +1,22 @@
-import { IconBtn } from "./IconBtn"
-import { FaEdit, FaHeart, FaRegHeart, FaReply, FaTrash } from "react-icons/fa"
-import { usePost } from "../contexts/PostContext"
-import { CommentList } from "./CommentList"
-import { useState } from "react"
-import { useAsyncFn } from "../hooks/useAsync"
+import { IconBtn } from "./IconBtn";
+import { FaEdit, FaHeart, FaRegHeart, FaReply, FaTrash } from "react-icons/fa";
+import { usePost } from "../contexts/PostContext";
+import { CommentList } from "./CommentList";
+import { useState } from "react";
+import { useAsyncFn } from "../hooks/useAsync";
 import {
   createComment,
   deleteComment,
   toggleCommentLike,
   updateComment,
-} from "../services/comments"
-import { CommentForm } from "./CommentForm"
-import { useUser } from "../hooks/useUser"
+} from "../services/comments";
+import { CommentForm } from "./CommentForm";
+import { useUser } from "../hooks/useUser";
 
 const dateFormatter = new Intl.DateTimeFormat(undefined, {
   dateStyle: "medium",
   timeStyle: "short",
-})
-
+});
 export function Comment({
   id,
   message,
@@ -26,9 +25,9 @@ export function Comment({
   likeCount,
   likedByMe,
 }) {
-  const [areChildrenHidden, setAreChildrenHidden] = useState(false)
-  const [isReplying, setIsReplying] = useState(false)
-  const [isEditing, setIsEditing] = useState(false)
+  const [areChildrenHidden, setAreChildrenHidden] = useState(false);
+  const [isReplying, setIsReplying] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
   const {
     post,
     getReplies,
@@ -36,42 +35,42 @@ export function Comment({
     updateLocalComment,
     deleteLocalComment,
     toggleLocalCommentLike,
-  } = usePost()
-  const createCommentFn = useAsyncFn(createComment)
-  const updateCommentFn = useAsyncFn(updateComment)
-  const deleteCommentFn = useAsyncFn(deleteComment)
-  const toggleCommentLikeFn = useAsyncFn(toggleCommentLike)
-  const childComments = getReplies(id)
-  const currentUser = useUser()
+  } = usePost();
+  const createCommentFn = useAsyncFn(createComment);
+  const updateCommentFn = useAsyncFn(updateComment);
+  const deleteCommentFn = useAsyncFn(deleteComment);
+  const toggleCommentLikeFn = useAsyncFn(toggleCommentLike);
+  const childComments = getReplies(id);
+  const currentUser = useUser();
 
   function onCommentReply(message) {
     return createCommentFn
       .execute({ postId: post.id, message, parentId: id })
-      .then(comment => {
-        setIsReplying(false)
-        createLocalComment(comment)
-      })
+      .then((comment) => {
+        setIsReplying(false);
+        createLocalComment(comment);
+      });
   }
 
   function onCommentUpdate(message) {
     return updateCommentFn
       .execute({ postId: post.id, message, id })
-      .then(comment => {
-        setIsEditing(false)
-        updateLocalComment(id, comment.message)
-      })
+      .then((comment) => {
+        setIsEditing(false);
+        updateLocalComment(id, comment.message);
+      });
   }
 
   function onCommentDelete() {
     return deleteCommentFn
       .execute({ postId: post.id, id })
-      .then(comment => deleteLocalComment(comment.id))
+      .then((comment) => deleteLocalComment(comment.id));
   }
 
   function onToggleCommentLike() {
     return toggleCommentLikeFn
       .execute({ id, postId: post.id })
-      .then(({ addLike }) => toggleLocalCommentLike(id, addLike))
+      .then(({ addLike }) => toggleLocalCommentLike(id, addLike));
   }
 
   return (
@@ -104,7 +103,7 @@ export function Comment({
             {likeCount}
           </IconBtn>
           <IconBtn
-            onClick={() => setIsReplying(prev => !prev)}
+            onClick={() => setIsReplying((prev) => !prev)}
             isActive={isReplying}
             Icon={FaReply}
             aria-label={isReplying ? "Cancel Reply" : "Reply"}
@@ -112,7 +111,7 @@ export function Comment({
           {user.id === currentUser.id && (
             <>
               <IconBtn
-                onClick={() => setIsEditing(prev => !prev)}
+                onClick={() => setIsEditing((prev) => !prev)}
                 isActive={isEditing}
                 Icon={FaEdit}
                 aria-label={isEditing ? "Cancel Edit" : "Edit"}
@@ -166,5 +165,5 @@ export function Comment({
         </>
       )}
     </>
-  )
+  );
 }
