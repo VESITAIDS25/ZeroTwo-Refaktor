@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-
+import SearchBar from '../components/SearchBar';
 import { db, auth, storage } from '../config/firebase';
 import {
   getDocs,

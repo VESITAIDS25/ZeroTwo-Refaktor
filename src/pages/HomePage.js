@@ -3,6 +3,7 @@ import {MainText} from '../components/mainText.js'
 import NavBar from '../components/navbar.js'
 import Info from '../components/information.js'
 import React from 'react'
+import MyDivider from '../components/MyDivider.js'
 
 
 const HomePage = () => {
@@ -10,6 +11,7 @@ const HomePage = () => {
     <div>
       < NavBar />
       < MainText />
+      <MyDivider/>
       <Info/>
       < Footer />
     </div>

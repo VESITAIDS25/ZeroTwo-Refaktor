@@ -15,12 +15,11 @@ import { auth } from '../config/firebase'
 import { signOut } from 'firebase/auth'
 import { onAuthStateChanged } from 'firebase/auth'
 
-const products = [
-  { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
-  { name: 'Engagement', description: 'Speak directly to your customers', href: '#', icon: CursorArrowRaysIcon },
-  { name: 'Security', description: 'Your customers’ data will be safe and secure', href: '#', icon: FingerPrintIcon },
-  { name: 'Integrations', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
-  { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
+const Sources = [
+  { name: 'Courses',  href: 'http://localhost:3000/course', icon: ChartPieIcon },
+  { name: 'Schemes',  href: '#', icon: CursorArrowRaysIcon },
+  { name: 'Guidence',  href: '#', icon: FingerPrintIcon },
+ 
 ]
 const callsToAction = [
   { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
@@ -73,7 +72,7 @@ export default function NavBar() {
         <Popover.Group className="hidden lg:flex lg:gap-x-12">
           <Popover className="relative">
             <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
-              Product
+              Resources
               <ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
             </Popover.Button>
 
@@ -88,7 +87,7 @@ export default function NavBar() {
             >
               <Popover.Panel className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
                 <div className="p-4">
-                  {products.map((item) => (
+                  {Sources.map((item) => (
                     <div
                       key={item.name}
                       className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
@@ -101,7 +100,7 @@ export default function NavBar() {
                           {item.name}
                           <span className="absolute inset-0" />
                         </a>
-                        <p className="mt-1 text-gray-600">{item.description}</p>
+                       
                       </div>
                     </div>
                   ))}
@@ -134,9 +133,9 @@ export default function NavBar() {
         </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           {
-            user?.email ? <a href="http://localhost:3000/split" className="text-sm font-semibold leading-6 text-gray-900">
+            !user?.email ? <a href="http://localhost:3000/split" className="text-sm font-semibold leading-6 text-gray-900">
             Login <span aria-hidden="true">&rarr;</span>
-           </a> : <div className="cursor-pointer" onClick={logout}>LogOut</div>
+           </a> : <div className="cursor-pointer" onClick={logout}><span></span>LogOut</div>
           }
         </div>
       </nav>
@@ -171,14 +170,14 @@ export default function NavBar() {
                   {({ open }) => (
                     <>
                       <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-50">
-                        Product
+                        Resources
                         <ChevronDownIcon
                           className={classNames(open ? 'rotate-180' : '', 'h-5 w-5 flex-none')}
                           aria-hidden="true"
                         />
                       </Disclosure.Button>
                       <Disclosure.Panel className="mt-2 space-y-2">
-                        {[...products, ...callsToAction].map((item) => (
+                        {[...Sources, ...callsToAction].map((item) => (
                           <Disclosure.Button
                             key={item.name}
                             as="a"
