@@ -1,70 +1,27 @@
-# Getting Started with Create React App
+# ZeroTwo - Refactor Submission
+# Problem Statement - Tackle Unemployment
+[Repository Link](https://github.com/VESITAIDS25/ZeroTwo-Refaktor.git)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Presentation Link](https://www.canva.com/design/DAFbjaft_5k/uipAb880IdvbPjtetT7rZw/editutm_content=DAFbjaft_5k&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+## Our Solution
+Our solution to the problem statement include the the following features
 
-## Available Scripts
+### Real-time Job Search:
+A website that offers a real-time job search can be a great solution to help people find employment opportunities in their field of interest. The website can aggregate job postings from various sources, including company websites, job boards, and social media platforms. The website can also offer features such as job alerts, resume building tools, and application tracking systems to help job seekers streamline their job search process.
+![WhatsApp Image 2023-02-25 at 12 12 48](https://user-images.githubusercontent.com/89914811/221342930-688f455a-5e44-457b-8db0-94cfe5f43e29.jpg)
+![WhatsApp Image 2023-02-25 at 12 12 48](https://user-images.githubusercontent.com/89914811/221342935-cfc4ac94-f844-4e1f-829b-c76306a2be8c.jpg)
 
-In the project directory, you can run:
 
-### `npm start`
+### Communities:
+Building an online community that connects job seekers with employers, recruiters, and other professionals in their field can also be a great solution to tackle unemployment. The community can offer job seekers access to networking opportunities, mentorship programs, and industry-specific resources that can help them enhance their skills and connect with potential employers.
+![WhatsApp Image 2023-02-25 at 12 10 57](https://user-images.githubusercontent.com/89914811/221342865-c6e6f607-423d-480a-8939-4e57befda807.jpg)
+![WhatsApp Image 2023-02-25 at 12 11 09](https://user-images.githubusercontent.com/89914811/221342871-982d69fb-b15c-498c-bb8a-c7e39160f759.jpg)
+![WhatsApp Image 2023-02-25 at 12 11 44](https://user-images.githubusercontent.com/89914811/221342880-69abd16a-d2ba-4b38-8531-799b634e0110.jpg)
+### Marketplace:
+Building a marketplace where job seekers can offer their skills and services to potential employers can be another solution to tackle unemployment. The marketplace can connect job seekers with freelancing opportunities, part-time work, and short-term contracts that can help them build their portfolio, gain experience, and earn income while looking for a full-time job.
+![WhatsApp Image 2023-02-25 at 12 12 44](https://user-images.githubusercontent.com/89914811/221342910-94e88152-5b5a-41c8-9173-3f67f2c01af2.jpg)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Course Recommendation
+Offering recommended courses can be another solution to tackle unemployment. By partnering with online learning platforms, the website can provide job seekers with access to a wide range of courses and certifications in various fields. The courses can be tailored to meet the specific needs of job seekers based on their industry, experience level, and career goals.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
