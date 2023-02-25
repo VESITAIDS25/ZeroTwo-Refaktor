@@ -8,7 +8,7 @@ import MyDivider from '../components/MyDivider.js'
 
 const HomePage = () => {
   return (
-    <div>
+    <div >
       < NavBar />
       < MainText />
       <MyDivider/>

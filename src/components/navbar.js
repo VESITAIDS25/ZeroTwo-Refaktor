@@ -35,6 +35,7 @@ export default function NavBar() {
   const [user, setUser] = useState({
 
   })
+  const [isAdmin, setIsAdmin] = useState(false);
 
   onAuthStateChanged(auth, (user) => {
     setUser(user)
@@ -131,6 +132,13 @@ export default function NavBar() {
             Courses
           </a>
         </Popover.Group>
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+          {
+            !user?.email ? <a href="http://localhost:3000/addinfo" className="text-sm font-semibold leading-6 text-gray-900">
+            Add Info <span aria-hidden="true">&rarr;</span>
+           </a> : <div className="cursor-pointer"><a href='http://localhost:3000/admin'>Dashboard</a></div>
+          }
+        </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           {
             !user?.email ? <a href="http://localhost:3000/split" className="text-sm font-semibold leading-6 text-gray-900">

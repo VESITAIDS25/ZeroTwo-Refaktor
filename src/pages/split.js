@@ -1,11 +1,22 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
+import { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { userContext } from '../context/EmployerPrvoider'
 const Split = () => {
+  const employer = useContext(userContext)
+  const navigate = useNavigate()
+
+  const onEmployerEvent = () => {
+    employer.setEmployer(true)
+  }
+  const onJobSeekerEvent = () => {
+    employer.setEmployer(false)
+  }
   return (
     <div className=' mt-20'>
             <p className="text-center text-3xl font-bold tracking-tight text-gray-900 mb-20 ">Select Role</p>
-
+{}
 <div class= "inline-flex">
 <Link to='/loginEmployee'>
 <button class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-12 px-10 border border-gray-400 mx-5 shadow-xl rounded">

@@ -131,12 +131,7 @@ const onSubmitMovie = async () => {
           />
         </div>
 
-        <button
-          onClick={onSubmitMovie}
-          className="bg-blue-600 py-2 px-4 rounded-lg mt-20 hover:bg-blue-500 text-white"
-        >
-          Submit
-        </button>
+        
       </div>
     }
   </div>
