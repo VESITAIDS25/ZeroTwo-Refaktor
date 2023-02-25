@@ -2,7 +2,7 @@
   "name": "employee-app",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://course-rec.onrender.com/",
+  "proxy": "https://jobez.onrender.com/",
   "dependencies": {
     "@headlessui/react": "^1.7.11",
     "@heroicons/react": "^2.0.16",

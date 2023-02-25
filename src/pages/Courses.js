@@ -39,10 +39,9 @@ const handleSearchCourse = () => {
   return (
     <div id='course'>
       <NavBar/>
-       <form onSubmit={searchCourses}>
-        <input onChange={e => setSearchTerm(e.target.value)}></input>
-        <button type="submit" onSubmit={handleSearchCourse}>Search</button>
-       </form>
+        {/* <label htmlFor="search-input"></label><input id="search-input" value={searchTerm} onChange={e => setSearchTerm(e.target.value)}></input>
+        <button type="submit">Search</button> */}
+          <input type="text" name="search-term" onChange={e => setSearchTerm(e.target.value)} />
       <Footer/>
     </div>
   )

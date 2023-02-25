@@ -106,7 +106,7 @@ export const FindJobs = () => {
             </div>
             <div>
               <div class="mt-5">
-                <button class="mr-2 my-1 uppercase tracking-wider px-2 text-indigo-600 border-indigo-600 hover:bg-indigo-600 hover:text-white border text-sm font-semibold rounded py-1 transition transform duration-500 cursor-pointer" ><a href="https:apna.co/jobs?page=10">Applay</a></button>
+                <button class="mr-2 my-1 uppercase tracking-wider px-2 text-indigo-600 border-indigo-600 hover:bg-indigo-600 hover:text-white border text-sm font-semibold rounded py-1 transition transform duration-500 cursor-pointer" ><a href="https:apna.co/jobs?page=10">Apply</a></button>
               </div>
             </div>
           </div>

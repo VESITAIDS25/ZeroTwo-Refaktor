@@ -6,6 +6,7 @@ import { db } from '../config/firebase';
 import { collection } from 'firebase/firestore';
 import NavBar from '../components/navbar';
 import SearchBar from '../components/SearchBar';
+import { Link } from 'react-router-dom';
 
 
 export default function MarketPlaceDetails() {
@@ -41,7 +42,7 @@ export default function MarketPlaceDetails() {
 			<h2 className="text-3xl font-bold">Find the underrated skills </h2>
       
     <SearchBar/>
-			
+		<div className="cursor-pointer"><Link to='/addskill'>Post your Skills</Link></div>
 		</div>
 		<div className="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
 			

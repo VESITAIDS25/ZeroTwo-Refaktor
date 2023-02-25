@@ -78,6 +78,7 @@ const onSubmitMovie = async () => {
 
   return (
     <div className="flex justify-center">
+      
     {
       <div className="flex-row w-1/2">
         <div className="flex-1 my-8">
@@ -129,9 +130,9 @@ const onSubmitMovie = async () => {
             className={inputtextbox}
             placeholder="price"
           />
-        </div>
 
-        
+          <button onClick={onSubmitMovie}>Submit</button>
+        </div>
       </div>
     }
   </div>

@@ -12,6 +12,7 @@ import Split from './pages/split'
 import Courses from './pages/Courses'
 import InfoFrom from './components/InfoFrom';
 import Dashboard from './components/admin/Dashboard';
+import CareerResources from './pages/testDyo';
 import { userContext } from './context/EmployerPrvoider';
 
 
@@ -20,7 +21,7 @@ function App() {
   return (
     <div className="App">
         <Router>
-        <userContext.Provider value={employer}>
+        <userContext.Provider value={{employer: employer, setEmployer: setEmployer}}>
        <Routes>
         
          <Route path="/" exact={true} element={<HomePage/>}></Route>
@@ -32,10 +33,10 @@ function App() {
           <Route path="/findjob" element={<FindJobs/>}></Route>
           <Route path="/split" element={<Split/>}></Route>
           <Route path="/course" element={<Courses/>}></Route>
-          <Route path="/market/:id" element={<Market/>}></Route>
+          <Route path="/addskill" element={<Market/>}></Route>
           <Route path="/marketplace" element={<MarketPlaceDetails/>}></Route>
 
-
+          <Route path="/resource" element={<CareerResources/>}></Route>
         
          
 

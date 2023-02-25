@@ -1,10 +1,11 @@
-import { auth, googleProvider } from "../../config/firebase";
+import { auth, googleProvider, useContext } from "../../config/firebase";
 import {
   createUserWithEmailAndPassword,
   signInWithPopup,
   signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
+import userContext from "../../context/EmployerProvider"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
 import { LockClosedIcon } from '@heroicons/react/20/solid'
@@ -13,9 +14,11 @@ import { redirect } from "react-router-dom";
 export const LoginPage2 = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
+    const employer = useContext(userContext)
     const navigate = useNavigate();
-  
+    useEffect(() => {
+      console.log(employer.employer)
+    })
     const signIn = async () => {
       try {
         addUser();

@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useState, useContext, useEffect} from 'react'
 import { Dialog, Disclosure, Popover, Transition } from '@headlessui/react'
 import {
   ArrowPathIcon,
@@ -14,9 +14,10 @@ import { Link, NavLink } from 'react-router-dom'
 import { auth } from '../config/firebase'
 import { signOut } from 'firebase/auth'
 import { onAuthStateChanged } from 'firebase/auth'
+import { userContext } from '../context/EmployerPrvoider'
 
 const Sources = [
-  { name: 'Courses',  href: 'http://localhost:3000/course', icon: ChartPieIcon },
+  { name: 'Courses',  href: './course', icon: ChartPieIcon },
   { name: 'Schemes',  href: '#', icon: CursorArrowRaysIcon },
   { name: 'Guidence',  href: '#', icon: FingerPrintIcon },
  
@@ -36,7 +37,12 @@ export default function NavBar() {
 
   })
   const [isAdmin, setIsAdmin] = useState(false);
-
+  const employer = useContext(userContext)
+  useEffect(
+    () => {
+      console.log(employer.employer)
+    }
+  )
   onAuthStateChanged(auth, (user) => {
     setUser(user)
   });
@@ -55,7 +61,7 @@ export default function NavBar() {
     <header className="bg-white">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
+          <a href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
             <img className="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
           </a>
@@ -125,23 +131,23 @@ export default function NavBar() {
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
             Communities
           </a>
-          <a href="http://localhost:3000/marketplace" className="text-sm font-semibold leading-6 text-gray-900">
+          <a href="./marketplace" className="text-sm font-semibold leading-6 text-gray-900">
             Marketplace
           </a>
-          <a href="http://localhost:3000/course" className="text-sm font-semibold leading-6 text-gray-900">
-            Courses
+          <a href="https://skinny-homburg-174.notion.site/Career-Resources-3ccff1424a0e402095be20427e91dbfe" className="text-sm font-semibold leading-6 text-gray-900">
+            Career
           </a>
         </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           {
-            !user?.email ? <a href="http://localhost:3000/addinfo" className="text-sm font-semibold leading-6 text-gray-900">
+            !employer.employer ? <a href="./addinfo" className="text-sm font-semibold leading-6 text-gray-900">
             Add Info <span aria-hidden="true">&rarr;</span>
-           </a> : <div className="cursor-pointer"><a href='http://localhost:3000/admin'>Dashboard</a></div>
+           </a> : <div className="cursor-pointer"><a href='./admin'>Dashboard</a></div>
           }
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           {
-            !user?.email ? <a href="http://localhost:3000/split" className="text-sm font-semibold leading-6 text-gray-900">
+            !user?.email ? <a href="./split" className="text-sm font-semibold leading-6 text-gray-900">
             Login <span aria-hidden="true">&rarr;</span>
            </a> : <div className="cursor-pointer" onClick={logout}><span></span>LogOut</div>
           }
