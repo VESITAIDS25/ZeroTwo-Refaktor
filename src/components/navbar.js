@@ -128,7 +128,7 @@ export default function NavBar() {
             </Transition>
           </Popover>
 
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+          <a href="https://community-frontend.onrender.com/" className="text-sm font-semibold leading-6 text-gray-900">
             Communities
           </a>
           <a href="./marketplace" className="text-sm font-semibold leading-6 text-gray-900">
